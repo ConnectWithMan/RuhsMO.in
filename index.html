@@ -1,1 +1,684 @@
-coming
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="RUHS MO 2026 - Rajasthan Medical Officer Recruitment Updates, Notification, Syllabus, Result & Counselling. Get the latest government exam updates.">
+    <meta name="keywords" content="RUHS, Medical Officer, Rajasthan, MO Recruitment 2026, RUHS Exam, RUHS Syllabus, Government Job">
+    <title>RUHS MO 2026 | Rajasthan Medical Officer Recruitment Portal</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#0F766E',
+                        secondary: '#2563EB',
+                        accent: '#F59E0B',
+                        darkbg: '#0f172a',
+                        darkcard: '#1e293b'
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass {
+            background: rgba(15, 23, 42, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hover-glow:hover {
+            box-shadow: 0 10px 25px -5px rgba(15, 118, 110, 0.4);
+            transform: translateY(-4px);
+        }
+        .dark .hover-glow:hover {
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .dark .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Ticker Container */
+        .ticker-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+            box-sizing: border-box;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        .dark ::-webkit-scrollbar-track { background: #1e293b; }
+        ::-webkit-scrollbar-thumb { background: #0F766E; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0d5f59; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-darkbg dark:text-slate-200 transition-colors duration-300 font-sans antialiased">
+
+    <!-- Top Alert Bar -->
+    <div class="bg-accent text-white py-2 px-4 ticker-wrap relative z-50">
+        <div class="inline-block animate-marquee font-medium text-sm md:text-base">
+            <span class="mx-4">BREAKING: RUHS MO 2026 Notification Expected Soon! Keep checking the portal for updates.</span>
+            <span class="mx-4">Anticipated Exam Date to be announced in the official circular.</span>
+        </div>
+    </div>
+
+    <!-- Sticky Navbar -->
+    <nav class="glass sticky top-0 z-40 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <span class="font-bold text-xl tracking-tight text-primary dark:text-white">RUHS MO 2026</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 items-center">
+                    <a href="#" class="text-sm font-medium hover:text-primary transition-colors">Home</a>
+                    <a href="#updates" class="text-sm font-medium hover:text-primary transition-colors">Notification</a>
+                    <a href="#quick-access" class="text-sm font-medium hover:text-primary transition-colors">Eligibility</a>
+                    <a href="#quick-access" class="text-sm font-medium hover:text-primary transition-colors">Syllabus</a>
+                    <a href="#quick-access" class="text-sm font-medium hover:text-primary transition-colors">Previous Papers</a>
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="ml-4 p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                        <span class="dark:hidden text-xs font-semibold text-slate-700">Dark</span>
+                        <span class="hidden dark:block text-xs font-semibold text-yellow-400">Light</span>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="lg:hidden flex items-center gap-4">
+                    <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+                        <span class="dark:hidden text-xs font-semibold text-slate-700">Dark</span>
+                        <span class="hidden dark:block text-xs font-semibold text-yellow-400">Light</span>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-slate-600 dark:text-slate-300 hover:text-primary focus:outline-none">
+                        <span class="font-semibold">Menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white dark:bg-darkcard border-t dark:border-slate-700">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 flex flex-col shadow-lg">
+                <a href="#" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-700">Home</a>
+                <a href="#updates" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-700">Notification</a>
+                <a href="#quick-access" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-700">Eligibility</a>
+                <a href="#quick-access" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-700">Syllabus</a>
+                <a href="#quick-access" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-slate-100 dark:hover:bg-slate-700">Previous Papers</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-12 sm:pt-16 pb-16 sm:pb-24 overflow-hidden">
+        <!-- Abstract background elements -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+            <div class="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-primary/5 blur-3xl"></div>
+            <div class="absolute top-40 -left-20 w-72 h-72 rounded-full bg-secondary/5 blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+                <div class="space-y-6 sm:space-y-8 text-center lg:text-left">
+                    <div class="inline-block px-4 py-1.5 rounded-full bg-blue-50 text-secondary text-xs sm:text-sm font-semibold border border-blue-100">
+                        Official Information Portal
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight text-slate-900">
+                        RUHS Medical Officer <br class="hidden sm:block">
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Recruitment 2026</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0">
+                        “Rajasthan Medical Officer Recruitment Updates, Notification, Syllabus, Result & Counselling” <br><br class="hidden sm:block">
+                        Get latest notification, exam dates, syllabus, answer key, cutoff, and counselling updates all in one place.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4 justify-center lg:justify-start">
+                        <button class="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-3.5 rounded-lg bg-white border border-slate-200 hover:border-primary hover:text-primary text-slate-700 font-semibold shadow-sm transition-all flex items-center justify-center gap-2 text-sm sm:text-base">
+                            Join Telegram Group
+                        </button>
+                    </div>
+                </div>
+                <div class="relative hidden lg:block">
+                    <!-- Medical Illustration Placeholder using Unsplash image masked nicely -->
+                    <div class="relative rounded-xl overflow-hidden shadow-xl border border-slate-100 transition-all duration-500">
+                        <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5ee5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Medical Doctors" class="w-full h-auto object-cover" loading="lazy">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 to-transparent flex items-end p-6">
+                            <div class="text-white">
+                                <p class="font-bold text-lg">Govt. of Rajasthan</p>
+                                <p class="text-sm opacity-90">Medical & Health Department</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Floating Badge -->
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-slate-100 flex items-center gap-4 transition-transform hover:-translate-y-1">
+                        <div>
+                            <p class="text-xs text-slate-500 font-medium uppercase tracking-wider">Total Vacancies</p>
+                            <p class="text-xl font-bold text-slate-800">1,200+ Expected</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest Updates Section (With Skeleton Loading Simulation) -->
+    <section id="updates" class="py-12 sm:py-16 bg-white border-y border-slate-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Latest Updates & Tracking</h2>
+                <p class="text-slate-600 text-sm sm:text-base">Track the current status of the RUHS MO Recruitment 2026 lifecycle.</p>
+            </div>
+
+            <!-- Skeleton Loading Container -->
+            <div id="skeleton-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Generate 6 Skeletons -->
+                <script>
+                    for(let i=0; i<6; i++) {
+                        document.write(`
+                        <div class="p-6 rounded-xl border border-slate-200 bg-white shadow-sm animate-pulse">
+                            <div class="w-12 h-12 rounded-full bg-slate-100 mb-4"></div>
+                            <div class="h-6 bg-slate-100 rounded w-3/4 mb-3"></div>
+                            <div class="h-4 bg-slate-100 rounded w-full mb-2"></div>
+                            <div class="h-4 bg-slate-100 rounded w-2/3 mb-6"></div>
+                            <div class="h-10 bg-slate-100 rounded w-1/2"></div>
+                        </div>`);
+                    }
+                </script>
+            </div>
+
+            <!-- Actual Content (Hidden initially) -->
+            <div id="actual-updates" class="hidden grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Update Cards -->
+                <div class="professional-card hover:-translate-y-1 hover:shadow-md p-6 rounded-xl group">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 text-slate-800">Notification Release</h3>
+                    <p class="text-slate-600 text-sm mb-6">Official PDF notification detailing eligibility, vacancies, and rules.</p>
+                    <button class="text-primary font-medium hover:underline text-sm">View Details &rarr;</button>
+                </div>
+                
+                <div class="professional-card hover:-translate-y-1 hover:shadow-md p-6 rounded-xl group">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 text-slate-800">Application Form</h3>
+                    <p class="text-slate-600 text-sm mb-6">Online application link will be activated post notification release.</p>
+                    <button class="text-primary font-medium hover:underline text-sm">Apply Now (Soon) &rarr;</button>
+                </div>
+
+                <div class="professional-card hover:-translate-y-1 hover:shadow-md p-6 rounded-xl group">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 text-slate-800">Admit Card</h3>
+                    <p class="text-slate-600 text-sm mb-6">Download your hall ticket 7-10 days prior to the written exam.</p>
+                    <button class="text-primary font-medium hover:underline text-sm">Check Status &rarr;</button>
+                </div>
+
+                <div class="professional-card hover:-translate-y-1 hover:shadow-md p-6 rounded-xl group">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 text-slate-800">Answer Key</h3>
+                    <p class="text-slate-600 text-sm mb-6">Provisional and final answer keys will be published post-exam.</p>
+                    <button class="text-primary font-medium hover:underline text-sm">View Keys &rarr;</button>
+                </div>
+
+                <div class="professional-card hover:-translate-y-1 hover:shadow-md p-6 rounded-xl group">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 text-slate-800">Result</h3>
+                    <p class="text-slate-600 text-sm mb-6">Check your selection status and scorecard for the MO examination.</p>
+                    <button class="text-primary font-medium hover:underline text-sm">Check Results &rarr;</button>
+                </div>
+
+                <div class="professional-card hover:-translate-y-1 hover:shadow-md p-6 rounded-xl group">
+                    <h3 class="text-lg sm:text-xl font-semibold mb-2 text-slate-800">Counselling</h3>
+                    <p class="text-slate-600 text-sm mb-6">Document verification and posting preference selection.</p>
+                    <button class="text-primary font-medium hover:underline text-sm">Counselling Portal &rarr;</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Dates & Vacancy Section -->
+    <section id="dates" class="py-16 bg-slate-50 dark:bg-darkbg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Important Dates Table -->
+                <div class="lg:col-span-7 bg-white dark:bg-darkcard rounded-2xl shadow-sm border border-slate-100 dark:border-slate-800 p-6 md:p-8">
+                    <div class="flex items-center gap-3 mb-6">
+                        <h2 class="text-2xl font-bold text-slate-900 dark:text-white">Important Dates</h2>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-300 text-sm uppercase tracking-wider">
+                                    <th class="p-4 rounded-tl-lg font-semibold">Event</th>
+                                    <th class="p-4 rounded-tr-lg font-semibold">Tentative Date</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-slate-800 dark:text-slate-300 divide-y divide-slate-100 dark:divide-slate-700">
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 font-medium">Notification Release</td>
+                                    <td class="p-4"><span class="bg-accent/20 text-accent px-3 py-1 rounded-full text-xs font-bold">To be notified</span></td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 font-medium">Application Start Date</td>
+                                    <td class="p-4">Update Soon</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 font-medium">Last Date to Apply</td>
+                                    <td class="p-4">Update Soon</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 font-medium">Written Exam Date</td>
+                                    <td class="p-4">Update Soon</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors">
+                                    <td class="p-4 font-medium">Result Declaration</td>
+                                    <td class="p-4">Update Soon</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Vacancy Overview (Animated Counters) -->
+                <div class="lg:col-span-5 bg-gradient-to-br from-primary to-teal-900 rounded-2xl shadow-lg p-6 md:p-8 text-white relative overflow-hidden">
+                    <h2 class="text-2xl font-bold mb-2 relative z-10">Vacancy Overview</h2>
+                    <p class="text-teal-100 text-sm mb-6 relative z-10">Expected breakdown of posts by category.</p>
+                    
+                    <div class="grid grid-cols-2 gap-4 relative z-10">
+                        <div class="bg-white/10 backdrop-blur p-4 rounded-xl border border-white/20">
+                            <p class="text-teal-200 text-sm font-medium">General (UR)</p>
+                            <p class="text-3xl font-bold counter" data-target="450">0</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur p-4 rounded-xl border border-white/20">
+                            <p class="text-teal-200 text-sm font-medium">OBC</p>
+                            <p class="text-3xl font-bold counter" data-target="250">0</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur p-4 rounded-xl border border-white/20">
+                            <p class="text-teal-200 text-sm font-medium">SC</p>
+                            <p class="text-3xl font-bold counter" data-target="180">0</p>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur p-4 rounded-xl border border-white/20">
+                            <p class="text-teal-200 text-sm font-medium">ST & EWS</p>
+                            <p class="text-3xl font-bold counter" data-target="320">0</p>
+                        </div>
+                    </div>
+                    <div class="mt-4 bg-white/20 backdrop-blur p-4 rounded-xl border border-white/30 flex justify-between items-center relative z-10">
+                        <span class="font-semibold text-lg">Total Expected Posts</span>
+                        <span class="text-4xl font-extrabold text-accent counter" data-target="1200">0</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Access Grid -->
+    <section id="quick-access" class="py-16 bg-white dark:bg-darkcard border-y border-slate-100 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-slate-900 dark:text-white mb-10">Quick Access Links</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                <!-- Grid Items -->
+                <a href="#" class="flex flex-col items-center p-6 bg-slate-50 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white dark:hover:bg-secondary transition-all group border border-slate-100 dark:border-slate-700">
+                    <span class="font-medium text-center">Eligibility</span>
+                </a>
+                <a href="#" class="flex flex-col items-center p-6 bg-slate-50 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white dark:hover:bg-secondary transition-all group border border-slate-100 dark:border-slate-700">
+                    <span class="font-medium text-center">Salary</span>
+                </a>
+                <a href="#" class="flex flex-col items-center p-6 bg-slate-50 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white dark:hover:bg-secondary transition-all group border border-slate-100 dark:border-slate-700">
+                    <span class="font-medium text-center">Exam Pattern</span>
+                </a>
+                <a href="#" class="flex flex-col items-center p-6 bg-slate-50 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white dark:hover:bg-secondary transition-all group border border-slate-100 dark:border-slate-700">
+                    <span class="font-medium text-center">Syllabus</span>
+                </a>
+                <a href="#" class="flex flex-col items-center p-6 bg-slate-50 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white dark:hover:bg-secondary transition-all group border border-slate-100 dark:border-slate-700">
+                    <span class="font-medium text-center">Previous Papers</span>
+                </a>
+                <a href="#cutoff" class="flex flex-col items-center p-6 bg-slate-50 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white dark:hover:bg-secondary transition-all group border border-slate-100 dark:border-slate-700">
+                    <span class="font-medium text-center">Cutoff</span>
+                </a>
+                <a href="#" class="flex flex-col items-center p-6 bg-slate-50 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white dark:hover:bg-secondary transition-all group border border-slate-100 dark:border-slate-700">
+                    <span class="font-medium text-center">Merit List</span>
+                </a>
+                <a href="#" class="flex flex-col items-center p-6 bg-slate-50 dark:bg-slate-800 rounded-xl hover:bg-primary hover:text-white dark:hover:bg-secondary transition-all group border border-slate-100 dark:border-slate-700">
+                    <span class="font-medium text-center">Doc Verification</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us & Cutoff Grid -->
+    <section class="py-16 bg-slate-50 dark:bg-darkbg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <!-- Why Choose Us -->
+            <div>
+                <h2 class="text-3xl font-bold text-slate-900 dark:text-white mb-6">Why Follow Our Portal?</h2>
+                <p class="text-slate-600 dark:text-slate-400 mb-8">We are dedicated to providing the most accurate and fastest updates for Rajasthan Medical Officer recruitment aspirants.</p>
+                
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-4 bg-white dark:bg-darkcard p-4 rounded-lg shadow-sm">
+                        <span class="font-medium dark:text-slate-200">Lightning Fast Updates</span>
+                    </li>
+                    <li class="flex items-center gap-4 bg-white dark:bg-darkcard p-4 rounded-lg shadow-sm">
+                        <span class="font-medium dark:text-slate-200">Official PDFs & Sources Only</span>
+                    </li>
+                    <li class="flex items-center gap-4 bg-white dark:bg-darkcard p-4 rounded-lg shadow-sm">
+                        <span class="font-medium dark:text-slate-200">Rajasthan Focused Content</span>
+                    </li>
+                    <li class="flex items-center gap-4 bg-white dark:bg-darkcard p-4 rounded-lg shadow-sm">
+                        <span class="font-medium dark:text-slate-200">100% Free Preparation Resources</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Previous Year Cutoff -->
+            <div id="cutoff" class="bg-white dark:bg-darkcard rounded-2xl p-6 shadow-sm border border-slate-100 dark:border-slate-800">
+                <h2 class="text-2xl font-bold text-slate-900 dark:text-white mb-6">Previous Year Cutoff (Expected Trend)</h2>
+                
+                <div class="space-y-5">
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">General (UR)</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">72%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5">
+                            <div class="bg-primary h-2.5 rounded-full" style="width: 72%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">OBC</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">68%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5">
+                            <div class="bg-secondary h-2.5 rounded-full" style="width: 68%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">EWS</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">65%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5">
+                            <div class="bg-accent h-2.5 rounded-full" style="width: 65%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">SC</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">58%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5">
+                            <div class="bg-purple-500 h-2.5 rounded-full" style="width: 58%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-1">
+                            <span class="text-sm font-medium text-slate-700 dark:text-slate-300">ST</span>
+                            <span class="text-sm font-bold text-slate-900 dark:text-white">55%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5">
+                            <div class="bg-rose-500 h-2.5 rounded-full" style="width: 55%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section class="py-16 bg-white dark:bg-darkcard border-y border-slate-100 dark:border-slate-800">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-slate-900 dark:text-white mb-10">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4" id="faq-accordion">
+                <!-- FAQ Item 1 -->
+                <div class="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-slate-50 dark:bg-slate-800 flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-slate-800 dark:text-slate-200">Who can apply for RUHS MO Recruitment?</span>
+                        <i class="fas fa-chevron-down faq-icon text-slate-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white dark:bg-darkcard text-slate-600 dark:text-slate-400 text-sm">
+                        Candidates possessing an MBBS degree from a university recognized by the National Medical Commission (NMC) and registered with the Rajasthan Medical Council are eligible to apply.
+                    </div>
+                </div>
+                <!-- FAQ Item 2 -->
+                <div class="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-slate-50 dark:bg-slate-800 flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-slate-800 dark:text-slate-200">What is the age limit for the Medical Officer post?</span>
+                        <i class="fas fa-chevron-down faq-icon text-slate-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white dark:bg-darkcard text-slate-600 dark:text-slate-400 text-sm">
+                        Generally, candidates must be between 22 and 45 years of age. Age relaxation is applicable for reserved categories as per Rajasthan government norms.
+                    </div>
+                </div>
+                <!-- FAQ Item 3 -->
+                <div class="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-slate-50 dark:bg-slate-800 flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-slate-800 dark:text-slate-200">What is the expected salary for RUHS MO?</span>
+                        <i class="fas fa-chevron-down faq-icon text-slate-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white dark:bg-darkcard text-slate-600 dark:text-slate-400 text-sm">
+                        The Medical Officer post falls under Pay Matrix Level-14. Initially, during the probation period, a fixed remuneration is given, post which full allowances are provided.
+                    </div>
+                </div>
+                <!-- FAQ Item 4 -->
+                <div class="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-slate-50 dark:bg-slate-800 flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-slate-800 dark:text-slate-200">What is the exam pattern?</span>
+                        <i class="fas fa-chevron-down faq-icon text-slate-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white dark:bg-darkcard text-slate-600 dark:text-slate-400 text-sm">
+                        The exam usually consists of 100 objective type (MCQ) questions based on the standard MBBS curriculum. Total duration is typically 2 hours.
+                    </div>
+                </div>
+                <!-- FAQ Item 5 -->
+                <div class="border border-slate-200 dark:border-slate-700 rounded-lg overflow-hidden">
+                    <button class="faq-btn w-full px-6 py-4 text-left bg-slate-50 dark:bg-slate-800 flex justify-between items-center focus:outline-none">
+                        <span class="font-semibold text-slate-800 dark:text-slate-200">What is the selection process?</span>
+                        <i class="fas fa-chevron-down faq-icon text-slate-500 transition-transform duration-300"></i>
+                    </button>
+                    <div class="faq-content hidden px-6 py-4 bg-white dark:bg-darkcard text-slate-600 dark:text-slate-400 text-sm">
+                        The selection is based on the marks obtained in the online/offline written examination, followed by document verification. There is no interview round.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA / Newsletter Section -->
+    <section class="bg-gradient-to-r from-primary to-secondary text-white py-12 sm:py-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/10"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6">Join 10,000+ Aspirants</h2>
+            <p class="text-base sm:text-lg text-slate-100 mb-6 sm:mb-8 max-w-2xl mx-auto">Don't miss a single update regarding the RUHS MO 2026 examination. Join our active communities for instant alerts and study materials.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4">
+                <button class="w-full sm:w-auto bg-[#25D366] hover:bg-[#1da851] text-white font-bold py-3.5 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition duration-300 flex items-center justify-center gap-3 text-base sm:text-lg">
+                    <i class="fab fa-whatsapp text-2xl"></i> WhatsApp Channel
+                </button>
+                <button class="w-full sm:w-auto bg-[#0088cc] hover:bg-[#006699] text-white font-bold py-3.5 sm:py-4 px-6 sm:px-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition duration-300 flex items-center justify-center gap-3 text-base sm:text-lg">
+                    <i class="fab fa-telegram-plane text-2xl"></i> Telegram Group
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-slate-900 text-slate-300 pt-12 sm:pt-16 pb-8 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-12 mb-10 sm:mb-12">
+                <!-- Brand -->
+                <div>
+                    <div class="flex items-center gap-2 mb-4 sm:mb-6">
+                        <i class="fas fa-user-md text-primary text-2xl"></i>
+                        <span class="font-bold text-xl text-white">RUHS MO 2026</span>
+                    </div>
+                    <p class="text-sm text-slate-400 mb-4">The most trusted information portal for Rajasthan Medical Officer recruitment aspirants.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-slate-400 hover:text-white transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 sm:mb-6 uppercase tracking-wider text-sm">Quick Links</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Home</a></li>
+                        <li><a href="#updates" class="hover:text-primary transition-colors">Latest Notification</a></li>
+                        <li><a href="#dates" class="hover:text-primary transition-colors">Important Dates</a></li>
+                        <li><a href="#cutoff" class="hover:text-primary transition-colors">Previous Cutoffs</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Important Pages -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 sm:mb-6 uppercase tracking-wider text-sm">Important Pages</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-primary transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Terms of Service</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Disclaimer</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Sitemap</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-white font-semibold mb-4 sm:mb-6 uppercase tracking-wider text-sm">Contact Us</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary"></i>
+                            <a href="mailto:contact@ruhsmo.in" class="hover:text-white transition-colors">contact@ruhsmo.in</a>
+                        </li>
+                        <li class="flex items-start gap-3 mt-2">
+                            <i class="fas fa-map-marker-alt text-primary mt-1"></i>
+                            <span>Jaipur, Rajasthan, India<br>302001</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 pt-6 sm:pt-8 text-sm text-center text-slate-500">
+                <p>Disclaimer: This is an information portal and not the official website of RUHS. We gather details from public domains to assist aspirants.</p>
+                <p class="mt-2">&copy; 2024-2026 RUHS MO Information Portal. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Action Buttons -->
+    <!-- Scroll to top -->
+    <button id="scroll-top" class="fixed bottom-6 right-6 bg-slate-800 text-white p-4 rounded-full shadow-2xl hover:bg-slate-700 hover:scale-110 transition-all z-50 opacity-0 translate-y-10 pointer-events-none">
+        <i class="fas fa-arrow-up text-xl leading-none"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Skeleton Loading Simulation for Updates
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                document.getElementById('skeleton-container').classList.add('hidden');
+                const actualContent = document.getElementById('actual-updates');
+                actualContent.classList.remove('hidden');
+                // Slight fade-in effect
+                actualContent.classList.add('animate-fade-in');
+            }, 2000); // 2-second simulation
+        });
+
+        // Animated Counters
+        const counters = document.querySelectorAll('.counter');
+        const speed = 200; // lower is slower
+
+        const startCounters = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +counter.innerText;
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc);
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target + (target > 500 ? "+" : "");
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter); // Run only once
+                }
+            });
+        };
+        
+        const counterObserver = new IntersectionObserver(startCounters, { threshold: 0.5 });
+        counters.forEach(counter => counterObserver.observe(counter));
+
+        // FAQ Accordion
+        const faqBtns = document.querySelectorAll('.faq-btn');
+        faqBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const icon = this.querySelector('.faq-icon');
+                
+                // Toggle current
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Scroll to Top Button
+        const scrollTopBtn = document.getElementById('scroll-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTopBtn.classList.remove('opacity-0', 'translate-y-10', 'pointer-events-none');
+                scrollTopBtn.classList.add('opacity-100', 'translate-y-0');
+            } else {
+                scrollTopBtn.classList.add('opacity-0', 'translate-y-10', 'pointer-events-none');
+                scrollTopBtn.classList.remove('opacity-100', 'translate-y-0');
+            }
+        });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
