@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +21,8 @@
       "@context": "https://schema.org",
       "@type": "JobPosting",
       "title": "Medical Officer (MO)",
+      "datePosted": "2026-01-01",
+      "validThrough": "2026-12-31",
       "hiringOrganization": {
         "@type": "Organization",
         "name": "Rajasthan University of Health Sciences (RUHS)",
@@ -29,11 +32,23 @@
         "@type": "Place",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "Sector-18, Kumbha Marg, Pratap Nagar",
+          "addressLocality": "Jaipur",
           "addressRegion": "Rajasthan",
+          "postalCode": "302033",
           "addressCountry": "IN"
         }
       },
       "employmentType": "FULL_TIME",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "INR",
+        "value": {
+          "@type": "QuantitativeValue",
+          "value": 56100,
+          "unitText": "MONTH"
+        }
+      },
       "description": "Rajasthan University of Health Sciences (RUHS) is recruiting Medical Officers. Find detailed notifications, eligibility, and apply online."
     }
     </script>
@@ -67,15 +82,15 @@
     <style>
         /* CSS Variables for consistent theming */
         :root {
-            --primary-color: #0056b3;
-            --secondary-color: #003366;
-            --accent-color: #e9ecef;
-            --text-color: #333;
-            --light-bg: #f8f9fa;
+            --primary-color: #0078D4; /* Microsoft Blue */
+            --secondary-color: #242424; /* Dark Gray */
+            --accent-color: #e1dfdd; /* Fluent UI Border Gray */
+            --text-color: #242424;
+            --light-bg: #faf9f8; /* Fluent UI Background */
             --telegram-color: #0088cc;
             --white: #ffffff;
-            --shadow: 0 4px 6px rgba(0,0,0,0.1);
-            --transition: all 0.3s ease;
+            --shadow: 0 2px 4px rgba(0,0,0,0.08), 0 0px 2px rgba(0,0,0,0.06);
+            --transition: all 0.2s ease-in-out;
         }
 
         /* Reset & Base Styles */
@@ -102,7 +117,7 @@
             position: sticky;
             top: 0;
             background-color: var(--white);
-            box-shadow: var(--shadow);
+            border-bottom: 1px solid var(--accent-color);
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -128,7 +143,8 @@
         .nav-links li a {
             text-decoration: none;
             color: var(--secondary-color);
-            font-weight: 600;
+            font-weight: 400;
+            font-size: 0.95rem;
             transition: var(--transition);
         }
 
@@ -145,43 +161,41 @@
 
         /* 2. Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            background: var(--primary-color);
             color: var(--white);
-            text-align: center;
-            padding: 100px 20px;
+            text-align: left;
+            padding: 80px 5%;
         }
 
         .hero h1 {
             font-size: 2.8rem;
             margin-bottom: 20px;
+            font-weight: 600;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-bottom: 30px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            max-width: 700px;
             opacity: 0.9;
         }
 
         .btn-telegram {
             display: inline-block;
-            background-color: var(--telegram-color);
-            color: var(--white);
-            padding: 12px 30px;
-            border-radius: 50px;
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 10px 24px;
+            border-radius: 4px;
             text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.4);
+            font-size: 1rem;
+            font-weight: 600;
             transition: var(--transition);
+            border: 1px solid transparent;
         }
 
         .btn-telegram:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.6);
-            background-color: #007bb5;
+            background-color: #f3f2f1;
+            box-shadow: var(--shadow);
         }
 
         /* Common Container */
@@ -192,21 +206,11 @@
         }
 
         .section-title {
-            text-align: center;
+            text-align: left;
             color: var(--secondary-color);
-            font-size: 2rem;
-            margin-bottom: 40px;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--primary-color);
-            margin: 10px auto 0;
-            border-radius: 2px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 30px;
         }
 
         /* 3 & 5. Grid for Cards & Quick Links */
@@ -218,61 +222,61 @@
 
         .card {
             background: var(--white);
-            padding: 25px;
-            border-radius: 10px;
+            padding: 24px;
+            border-radius: 4px;
             box-shadow: var(--shadow);
-            border-top: 4px solid var(--primary-color);
+            border: 1px solid var(--accent-color);
             transition: var(--transition);
-            text-align: center;
+            text-align: left;
             text-decoration: none;
             color: inherit;
             display: block;
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.12);
         }
 
         .card h3 {
             color: var(--secondary-color);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .card p {
             color: #666;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .quick-links-card {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             background: var(--white);
-            padding: 20px;
-            border-radius: 8px;
+            padding: 16px 24px;
+            border-radius: 4px;
             box-shadow: var(--shadow);
             text-decoration: none;
             color: var(--primary-color);
-            font-weight: bold;
-            font-size: 1.2rem;
+            font-weight: 600;
+            font-size: 1.1rem;
             transition: var(--transition);
             border: 1px solid var(--accent-color);
         }
 
         .quick-links-card:hover {
-            background: var(--primary-color);
-            color: var(--white);
-            transform: translateY(-3px);
+            background: #f3f2f1;
+            color: #005a9e;
         }
 
         /* 4. Table Styles for Important Dates */
         .table-responsive {
             overflow-x: auto;
             background: var(--white);
-            border-radius: 10px;
+            border-radius: 4px;
             box-shadow: var(--shadow);
+            border: 1px solid var(--accent-color);
         }
 
         .dates-table {
@@ -287,9 +291,10 @@
         }
 
         .dates-table th {
-            background-color: var(--primary-color);
-            color: var(--white);
+            background-color: #f3f2f1;
+            color: var(--secondary-color);
             font-weight: 600;
+            border-bottom: 2px solid var(--accent-color);
         }
 
         .dates-table tr:hover {
@@ -299,9 +304,9 @@
         /* 6. FAQ Section */
         .faq-item {
             background: var(--white);
-            margin-bottom: 15px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid var(--accent-color);
             overflow: hidden;
         }
 
@@ -310,9 +315,9 @@
             text-align: left;
             background: none;
             border: none;
-            padding: 20px;
-            font-size: 1.1rem;
-            font-weight: 600;
+            padding: 16px 20px;
+            font-size: 1rem;
+            font-weight: 400;
             color: var(--secondary-color);
             cursor: pointer;
             display: flex;
@@ -322,7 +327,7 @@
         }
         
         .faq-question:hover {
-            background-color: #f1f5f9;
+            background-color: #faf9f8;
         }
 
         .faq-question::after {
@@ -349,11 +354,12 @@
 
         /* 7. Footer */
         .footer {
-            background-color: var(--secondary-color);
-            color: var(--white);
+            background-color: #f3f2f1;
+            color: var(--text-color);
             text-align: center;
             padding: 20px;
             margin-top: 50px;
+            border-top: 1px solid var(--accent-color);
         }
 
         /* Responsive Layout */
@@ -425,7 +431,7 @@
     <!-- About Section (Content Expansion for SEO) -->
     <section class="container" id="about">
         <h2 class="section-title">About RUHS MO Recruitment 2026</h2>
-        <div style="background: var(--white); padding: 30px; border-radius: 10px; box-shadow: var(--shadow); line-height: 1.8;">
+        <div style="background: var(--white); padding: 30px; border-radius: 4px; box-shadow: var(--shadow); border: 1px solid var(--accent-color); line-height: 1.8;">
             <p style="margin-bottom: 15px;">The <strong>Rajasthan University of Health Sciences (RUHS)</strong> conducts the Medical Officer (MO) direct recruitment examination to fill vacancies across various government medical institutions in Rajasthan. This is a highly sought-after opportunity for medical professionals looking to serve in the state healthcare sector.</p>
             <p style="margin-bottom: 15px;">Candidates selected as Medical Officers will be placed under the standard pay scale as determined by the Rajasthan Government. The selection process typically involves a Computer Based Test (CBT), followed by rigorous document verification to ensure all eligibility and NMC registration requirements are meticulously met.</p>
             <p>Stay tuned to this portal for real-time updates regarding the <em>RUHS MO Notification 2026</em>, application deadlines, syllabus PDF downloads, and admit card release dates.</p>
@@ -555,7 +561,7 @@
     <!-- 7. Footer -->
     <footer class="footer" id="footer">
         <p>&copy; 2026 RUHS Medical Officer Recruitment Portal. All Rights Reserved.</p>
-        <p style="font-size: 0.9rem; margin-top: 10px; color: #aaa;">This is an informational portal. Please verify all details on the official RUHS website.</p>
+        <p style="font-size: 0.9rem; margin-top: 10px; color: #605e5c;">This is an informational portal. Please verify all details on the official RUHS website.</p>
 </footer>
 
     <!-- JavaScript for Interactivity -->
