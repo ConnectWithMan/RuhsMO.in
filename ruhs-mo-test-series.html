@@ -36,371 +36,414 @@
 </script>
 
     <title>RUHS MO Test Series - Attempt Timed Mock Tests Online</title>
+
+    <!-- Link to Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
     <style>
-        :root {
-            --primary-color: #0078D4;
-            --secondary-color: #242424;
-            --accent-color: #e1dfdd;
-            --text-color: #242424;
-            --light-bg: #faf9f8;
-            --success-color: #107c10;
-            --danger-color: #d13438;
-            --white: #ffffff;
-            --shadow: 0 2px 4px rgba(0,0,0,0.08), 0 0px 2px rgba(0,0,0,0.06);
-            --transition: all 0.2s ease-in-out;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-
-        body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-color);
-            background-color: var(--light-bg);
-            line-height: 1.6;
-        }
-
-        .navbar {
-            position: sticky; top: 0; background-color: var(--white);
-            border-bottom: 1px solid var(--accent-color);
-            display: flex; justify-content: space-between; align-items: center;
-            padding: 15px 5%; z-index: 1000;
-        }
-        .nav-brand {
-            font-size: 1.5rem; font-weight: bold; color: var(--primary-color);
-            display: flex; align-items: center; gap: 10px; text-decoration: none;
-        }
-        .nav-links { list-style: none; display: flex; gap: 25px; }
-        .nav-links li a { text-decoration: none; color: var(--secondary-color); font-weight: 400; font-size: 0.95rem; transition: var(--transition); }
-        .nav-links li a:hover { color: var(--primary-color); }
-        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--secondary-color); }
-
-        .hero { background: var(--primary-color); color: var(--white); text-align: left; padding: 70px 5%; }
-        .hero h1 { font-size: 2.6rem; margin-bottom: 18px; font-weight: 600; }
-        .hero p { font-size: 1.1rem; margin-bottom: 20px; max-width: 720px; opacity: 0.9; }
-        .hero-stats { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 20px; }
-        .hero-stat { display: flex; flex-direction: column; }
-        .hero-stat-num { font-size: 1.8rem; font-weight: 700; }
-        .hero-stat-label { font-size: 0.85rem; opacity: 0.85; }
-
-        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
-        .section-title { text-align: left; color: var(--secondary-color); font-size: 1.8rem; font-weight: 600; margin-bottom: 10px; }
-        .section-subtitle { color: #555; margin-bottom: 30px; max-width: 800px; }
+        .hero-stats { display: flex; gap: 30px; flex-wrap: wrap; margin-top: 20px; justify-content: center; }
+        .hero-stat { display: flex; flex-direction: column; align-items: center; background: #ffffff; padding: 10px 24px; border-radius: var(--radius-md); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); }
+        .hero-stat-num { font-size: 1.8rem; font-weight: 700; color: var(--blue-primary); }
+        .hero-stat-label { font-size: 0.85rem; font-weight: 600; color: var(--text-heading); }
 
         .test-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 22px; }
         .test-card {
-            background: var(--white); padding: 26px; border-radius: 6px; box-shadow: var(--shadow);
-            border: 1px solid var(--accent-color); transition: var(--transition);
+            background: var(--bg-surface); padding: 26px; border-radius: var(--radius-lg); box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-color); transition: var(--transition-normal);
             display: flex; flex-direction: column; gap: 14px;
         }
-        .test-card:hover { box-shadow: 0 6px 14px rgba(0,0,0,0.12); transform: translateY(-2px); }
+        .test-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-2px); }
         .test-card-header { display: flex; justify-content: space-between; align-items: flex-start; }
-        .test-card h3 { color: var(--secondary-color); font-size: 1.15rem; font-weight: 700; }
+        .test-card h3 { color: var(--text-heading); font-size: 1.15rem; font-weight: 700; }
         .test-status-badge { font-size: 0.72rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
-        .badge-not-started { background: #f3f2f1; color: #666; }
-        .badge-completed { background: #dff6dd; color: var(--success-color); }
-        .test-card-meta { display: flex; gap: 16px; font-size: 0.85rem; color: #666; flex-wrap: wrap; }
+        .badge-not-started { background: #f1f5f9; color: #64748b; }
+        .badge-completed { background: #dff6dd; color: #16a34a; }
+        .test-card-meta { display: flex; gap: 16px; font-size: 0.85rem; color: #64748b; flex-wrap: wrap; }
         .test-card-meta span { display: flex; align-items: center; gap: 5px; }
-        .test-card-score { font-size: 0.9rem; font-weight: 600; color: var(--primary-color); }
+        .test-card-score { font-size: 0.9rem; font-weight: 600; color: var(--blue-primary); }
         .btn-start-test {
-            background: var(--primary-color); color: var(--white); border: none; padding: 11px 20px;
-            border-radius: 4px; font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: var(--transition); width: 100%;
+            background: var(--blue-primary); color: #ffffff; border: none; padding: 11px 20px;
+            border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; cursor: pointer; transition: var(--transition-fast); width: 100%;
         }
-        .btn-start-test:hover { background: #005a9e; }
+        .btn-start-test:hover { background: #1d4ed8; }
 
         .test-view { display: none; }
 
         .test-topbar {
             display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
-            background: var(--white); padding: 16px 22px; border-radius: 6px; box-shadow: var(--shadow);
-            border: 1px solid var(--accent-color); margin-bottom: 20px;
+            background: var(--bg-surface); padding: 16px 22px; border-radius: var(--radius-lg); box-shadow: var(--shadow-card);
+            border: 1px solid var(--border-color); margin-bottom: 20px;
         }
         .test-topbar-left { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
-        .test-title-badge { font-weight: 700; color: var(--secondary-color); font-size: 1.05rem; }
-        .timer-display {
-            display: flex; align-items: center; gap: 8px; background: #fff4ce; color: #4a3c00;
-            padding: 7px 16px; border-radius: 20px; font-weight: 700; font-size: 0.95rem; border-left: 4px solid #f7b500;
-        }
-        .timer-display.low-time { background: #fde7e9; color: #8c1116; border-left-color: var(--danger-color); }
-        .btn-exit-test {
-            background: var(--white); color: var(--secondary-color); border: 1px solid var(--accent-color);
-            padding: 8px 16px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; cursor: pointer;
-        }
-        .btn-exit-test:hover { border-color: var(--danger-color); color: var(--danger-color); }
+        .test-title-badge { font-weight: 700; color: var(--text-heading); font-size: 1.05rem; }
+        .timer-display { font-family: monospace; font-size: 1.1rem; font-weight: 700; color: #ef4444; background: #fef2f2; padding: 4px 12px; border-radius: 6px; border: 1px solid #fecaca; }
 
-        .progress-bar-track { width: 100%; height: 8px; background: var(--accent-color); border-radius: 4px; overflow: hidden; margin-bottom: 18px; }
-        .progress-bar-fill { height: 100%; background: var(--primary-color); border-radius: 4px; transition: width 0.3s ease; }
-
-        .quiz-card { background: var(--white); border-radius: 6px; box-shadow: var(--shadow); border: 1px solid var(--accent-color); padding: 30px; }
-        .quiz-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
-        .quiz-tag { display: inline-block; background: #e5f1fb; color: var(--primary-color); font-size: 0.8rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; }
-        .quiz-progress { font-size: 0.9rem; color: #666; font-weight: 600; }
-        .score-summary { font-size: 0.9rem; color: #444; font-weight: 600; background: #f3f2f1; padding: 6px 14px; border-radius: 20px; }
-        .quiz-question { font-size: 1.2rem; font-weight: 600; color: var(--secondary-color); margin-bottom: 24px; line-height: 1.5; }
-        .quiz-options { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 25px; }
+        .quiz-card { background: var(--bg-surface); padding: 28px; border-radius: var(--radius-lg); box-shadow: var(--shadow-card); border: 1px solid var(--border-color); margin-bottom: 24px; }
+        .quiz-meta { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 8px; }
+        .quiz-tag { background: #eff6ff; color: var(--blue-primary); font-size: 0.75rem; font-weight: 700; padding: 4px 10px; border-radius: 20px; }
+        .quiz-qnum { font-size: 0.85rem; color: #64748b; font-weight: 600; }
+        .quiz-question { font-size: 1.15rem; font-weight: 600; color: var(--text-heading); margin-bottom: 22px; line-height: 1.5; }
+        .quiz-options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
         .quiz-option {
-            display: flex; align-items: center; gap: 14px; padding: 14px 18px; border: 1px solid var(--accent-color);
-            border-radius: 4px; cursor: pointer; transition: var(--transition); background: var(--light-bg);
+            display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: var(--radius-md);
+            border: 1px solid var(--border-color); background: var(--bg-main); cursor: pointer; transition: var(--transition-fast);
         }
-        .quiz-option:hover { border-color: var(--primary-color); background: #f3f9fe; }
-        .quiz-option.selected { border-color: var(--primary-color); background: #e5f1fb; }
-        .quiz-option.correct { border-color: var(--success-color); background: #dff6dd; }
-        .quiz-option.incorrect { border-color: var(--danger-color); background: #fde7e9; }
-        .quiz-option input[type="radio"] { accent-color: var(--primary-color); width: 18px; height: 18px; cursor: pointer; }
+        .quiz-option:hover { border-color: var(--blue-primary); background: #f0fdf4; }
+        .quiz-option input[type="radio"] { display: none; }
         .option-letter {
-            width: 28px; height: 28px; border-radius: 50%; background: var(--white); border: 1px solid var(--accent-color);
+            width: 28px; height: 28px; border-radius: 50%; background: #ffffff; border: 1px solid var(--border-color);
             display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 600;
-            color: var(--secondary-color); flex-shrink: 0;
+            color: var(--text-heading); flex-shrink: 0;
         }
-        .quiz-option.correct .option-letter { background: var(--success-color); color: var(--white); border-color: var(--success-color); }
-        .quiz-option.incorrect .option-letter { background: var(--danger-color); color: var(--white); border-color: var(--danger-color); }
-        .quiz-option-text { font-size: 0.98rem; color: #333; }
+        .quiz-option.correct .option-letter { background: #16a34a; color: #ffffff; border-color: #16a34a; }
+        .quiz-option.incorrect .option-letter { background: #dc2626; color: #ffffff; border-color: #dc2626; }
+        .quiz-option-text { font-size: 0.98rem; color: var(--text-body); }
         .quiz-actions { display: flex; gap: 15px; align-items: center; flex-wrap: wrap; }
         .btn-submit {
-            background: var(--primary-color); color: var(--white); border: none; padding: 11px 28px; border-radius: 4px;
-            font-size: 1rem; font-weight: 600; cursor: pointer; transition: var(--transition);
+            background: var(--blue-primary); color: #ffffff; border: none; padding: 11px 28px; border-radius: var(--radius-md);
+            font-size: 1rem; font-weight: 600; cursor: pointer; transition: var(--transition-fast);
         }
-        .btn-submit:hover:not(:disabled) { background: #005a9e; }
+        .btn-submit:hover:not(:disabled) { background: #1d4ed8; }
         .btn-submit:disabled { background: #c8c6c4; cursor: not-allowed; }
         .btn-next {
-            background: var(--white); color: var(--primary-color); border: 1px solid var(--primary-color);
-            padding: 11px 28px; border-radius: 4px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: var(--transition);
+            background: #ffffff; color: var(--blue-primary); border: 1px solid var(--blue-primary);
+            padding: 11px 28px; border-radius: var(--radius-md); font-size: 1rem; font-weight: 600; cursor: pointer; transition: var(--transition-fast);
         }
-        .btn-next:hover { background: #e5f1fb; }
+        .btn-next:hover { background: #eff6ff; }
         .btn-jump {
-            background: var(--white); color: var(--secondary-color); border: 1px solid var(--accent-color);
-            padding: 8px 14px; border-radius: 4px; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: var(--transition);
+            background: #ffffff; color: var(--text-heading); border: 1px solid var(--border-color);
+            padding: 8px 14px; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: var(--transition-fast);
         }
-        .btn-jump:hover { border-color: var(--primary-color); color: var(--primary-color); }
+        .btn-jump:hover { border-color: var(--blue-primary); color: var(--blue-primary); }
         .btn-finish {
-            background: var(--success-color); color: var(--white); border: none; padding: 11px 24px;
-            border-radius: 4px; font-size: 0.95rem; font-weight: 600; cursor: pointer;
+            background: #16a34a; color: #ffffff; border: none; padding: 11px 24px;
+            border-radius: var(--radius-md); font-size: 0.95rem; font-weight: 600; cursor: pointer;
         }
-        .btn-finish:hover { background: #0c630c; }
+        .btn-finish:hover { background: #15803d; }
 
         .question-palette {
             display: grid; grid-template-columns: repeat(auto-fill, minmax(38px, 1fr)); gap: 8px;
-            margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--accent-color);
+            margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-color);
         }
         .palette-btn {
-            width: 38px; height: 38px; border-radius: 4px; border: 1px solid var(--accent-color); background: var(--light-bg);
-            font-size: 0.8rem; font-weight: 600; color: var(--secondary-color); cursor: pointer; transition: var(--transition);
+            width: 38px; height: 38px; border-radius: var(--radius-sm); border: 1px solid var(--border-color); background: var(--bg-main);
+            font-size: 0.8rem; font-weight: 600; color: var(--text-heading); cursor: pointer; transition: var(--transition-fast);
         }
-        .palette-btn:hover { border-color: var(--primary-color); }
-        .palette-btn.palette-current { border: 2px solid var(--primary-color); }
-        .palette-btn.palette-correct { background: #dff6dd; color: var(--success-color); border-color: var(--success-color); }
-        .palette-btn.palette-incorrect { background: #fde7e9; color: var(--danger-color); border-color: var(--danger-color); }
+        .palette-btn:hover { border-color: var(--blue-primary); }
+        .palette-btn.palette-current { border: 2px solid var(--blue-primary); }
+        .palette-btn.palette-correct { background: #dff6dd; color: #16a34a; border-color: #16a34a; }
+        .palette-btn.palette-incorrect { background: #fde7e9; color: #dc2626; border-color: #dc2626; }
+
+        .progress-bar-track { width: 100%; height: 8px; background: #e2e8f0; border-radius: 999px; overflow: hidden; margin-bottom: 24px; }
+        .progress-bar-fill { height: 100%; background: linear-gradient(90deg, var(--blue-primary), var(--indigo-accent)); transition: width 0.3s ease; }
+        .score-summary { font-size: 0.88rem; font-weight: 600; color: var(--text-muted); background: var(--bg-main); padding: 5px 14px; border-radius: 20px; border: 1px solid var(--border-color); }
+        .btn-exit-test { background: #fee2e2; color: #dc2626; border: 1px solid #fca5a5; padding: 7px 16px; border-radius: var(--radius-md); font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: var(--transition-fast); }
+        .btn-exit-test:hover { background: #dc2626; color: #ffffff; }
 
         .quiz-feedback {
-            margin-top: 22px; padding: 18px 20px; border-radius: 8px; font-size: 0.95rem; display: none;
-            align-items: flex-start; gap: 14px; position: relative; overflow: hidden; box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+            margin-top: 22px; padding: 18px 20px; border-radius: var(--radius-md); font-size: 0.95rem; display: none;
+            align-items: flex-start; gap: 14px; position: relative; overflow: hidden; box-shadow: var(--shadow-card);
         }
         .quiz-feedback.show { display: flex; animation: feedbackIn 0.35s ease; }
         @keyframes feedbackIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
         .quiz-feedback::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 5px; }
-        .feedback-icon {
-            flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center;
-            justify-content: center; font-size: 1.1rem; font-weight: 700; color: var(--white);
-        }
-        .feedback-body { flex: 1; }
-        .feedback-title { font-weight: 700; font-size: 1rem; margin-bottom: 4px; display: block; }
-        .feedback-text { color: #444; line-height: 1.55; }
-        .quiz-feedback.right { background: linear-gradient(135deg, #eafaf0 0%, #dff6dd 100%); }
-        .quiz-feedback.right::before { background: var(--success-color); }
-        .quiz-feedback.right .feedback-icon { background: var(--success-color); }
-        .quiz-feedback.right .feedback-title { color: #0e5c0e; }
-        .quiz-feedback.wrong { background: linear-gradient(135deg, #fdedee 0%, #fde7e9 100%); }
-        .quiz-feedback.wrong::before { background: var(--danger-color); }
-        .quiz-feedback.wrong .feedback-icon { background: var(--danger-color); }
-        .quiz-feedback.wrong .feedback-title { color: #8c1116; }
 
+        .quiz-feedback.right { background: #f0fdf4; border: 1px solid #bbf7d0; color: #166534; }
+        .quiz-feedback.right::before { background: #22c55e; }
+        .quiz-feedback.wrong { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; }
+        .quiz-feedback.wrong::before { background: #ef4444; }
+        .feedback-icon { font-size: 1.2rem; font-weight: 800; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+        .feedback-body { display: flex; flex-direction: column; gap: 4px; }
+        .feedback-title { font-weight: 700; font-size: 0.98rem; }
+        .feedback-text { font-size: 0.9rem; opacity: 0.9; }
+
+        /* Results Hero & Review List Styles */
         .results-hero {
-            background: var(--white); border-radius: 6px; box-shadow: var(--shadow); border: 1px solid var(--accent-color);
-            padding: 40px; text-align: center; margin-bottom: 25px;
+            background: var(--bg-surface); padding: 36px 28px; border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-card); border: 1px solid var(--border-color);
+            text-align: center; margin-bottom: 30px; display: flex; flex-direction: column; align-items: center; gap: 16px;
         }
         .results-score-circle {
-            width: 140px; height: 140px; border-radius: 50%; border: 8px solid var(--primary-color);
-            display: flex; flex-direction: column; align-items: center; justify-content: center; margin: 0 auto 20px;
+            width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border: 4px solid var(--blue-primary); display: flex; flex-direction: column; align-items: center; justify-content: center;
+            box-shadow: var(--shadow-sm);
         }
-        .results-score-circle .pct { font-size: 2rem; font-weight: 700; color: var(--secondary-color); }
-        .results-score-circle .label { font-size: 0.75rem; color: #666; }
-        .results-hero h2 { margin-bottom: 8px; color: var(--secondary-color); }
-        .results-hero p { color: #666; }
-        .results-stats-row { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 24px; }
-        .results-stat { text-align: center; }
-        .results-stat .num { font-size: 1.6rem; font-weight: 700; }
-        .results-stat .lbl { font-size: 0.8rem; color: #666; }
-        .results-stat.correct .num { color: var(--success-color); }
-        .results-stat.incorrect .num { color: var(--danger-color); }
-        .results-stat.skipped .num { color: #999; }
+        .results-score-circle .pct { font-size: 1.8rem; font-weight: 800; color: var(--blue-primary); line-height: 1; }
+        .results-score-circle .label { font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-top: 2px; }
+        .results-hero h2 { font-size: 1.6rem; font-weight: 800; color: var(--text-heading); margin: 0; }
+        .results-hero p { font-size: 1.05rem; color: var(--text-muted); margin: 0; }
+        .results-stats-row {
+            display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; margin-top: 10px; width: 100%; max-width: 600px;
+        }
+        .results-stat {
+            flex: 1; min-width: 100px; background: var(--bg-main); padding: 14px 16px; border-radius: var(--radius-md);
+            border: 1px solid var(--border-color); text-align: center;
+        }
+        .results-stat .num { font-size: 1.5rem; font-weight: 800; color: var(--text-heading); }
+        .results-stat .lbl { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-top: 2px; }
+        .results-stat.correct { background: #f0fdf4; border-color: #bbf7d0; }
+        .results-stat.correct .num { color: #16a34a; }
+        .results-stat.incorrect { background: #fef2f2; border-color: #fecaca; }
+        .results-stat.incorrect .num { color: #dc2626; }
+        .results-stat.skipped { background: #f8fafc; border-color: #e2e8f0; }
+        .results-stat.skipped .num { color: #64748b; }
+        .results-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
 
-        .review-list { display: flex; flex-direction: column; gap: 14px; }
+        .review-list { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
         .review-item {
-            background: var(--white); border-radius: 6px; box-shadow: var(--shadow); border: 1px solid var(--accent-color); padding: 20px 24px;
+            background: var(--bg-surface); padding: 22px; border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; flex-direction: column; gap: 10px;
         }
-        .review-item-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; flex-wrap: wrap; gap: 8px;}
-        .review-item-tag { font-size: 0.75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
-        .review-item.is-correct .review-item-tag { background: #dff6dd; color: var(--success-color); }
-        .review-item.is-incorrect .review-item-tag { background: #fde7e9; color: var(--danger-color); }
-        .review-item.is-skipped .review-item-tag { background: #f3f2f1; color: #666; }
-        .review-item-q { font-weight: 600; color: var(--secondary-color); margin-bottom: 10px; }
-        .review-item-ans { font-size: 0.9rem; color: #444; margin-bottom: 4px; }
-        .review-item-explanation { font-size: 0.88rem; color: #555; margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--accent-color); }
-        .results-actions { display: flex; gap: 15px; justify-content: center; margin-top: 25px; flex-wrap: wrap; }
-
-        .steps-list { counter-reset: step; list-style: none; }
-        .steps-list li { counter-increment: step; position: relative; padding: 14px 0 14px 45px; border-bottom: 1px solid var(--accent-color); color: #444; }
-        .steps-list li:last-child { border-bottom: none; }
-        .steps-list li::before {
-            content: counter(step); position: absolute; left: 0; top: 12px; width: 28px; height: 28px;
-            background: var(--primary-color); color: var(--white); border-radius: 50%; display: flex;
-            align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 600;
-        }
-
-        .footer { background-color: #f3f2f1; color: var(--text-color); text-align: center; padding: 20px; margin-top: 50px; border-top: 1px solid var(--accent-color); }
+        .review-item.is-correct { border-left: 5px solid #16a34a; }
+        .review-item.is-incorrect { border-left: 5px solid #dc2626; }
+        .review-item.is-skipped { border-left: 5px solid #94a3b8; }
+        .review-item-header { display: flex; justify-content: space-between; align-items: center; }
+        .review-item-tag { font-size: 0.78rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; }
+        .review-item.is-correct .review-item-tag { background: #dff6dd; color: #16a34a; }
+        .review-item.is-incorrect .review-item-tag { background: #fde7e9; color: #dc2626; }
+        .review-item.is-skipped .review-item-tag { background: #f1f5f9; color: #64748b; }
+        .review-item-q { font-size: 1.05rem; font-weight: 700; color: var(--text-heading); line-height: 1.4; }
+        .review-item-ans { font-size: 0.95rem; font-weight: 600; color: var(--text-body); background: var(--bg-main); padding: 10px 14px; border-radius: var(--radius-sm); }
+        .review-item-explanation { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%;
-                background-color: var(--white); box-shadow: 0 4px 6px rgba(0,0,0,0.1); padding: 20px 0;
-            }
-            .nav-links.active { display: flex; }
-            .nav-links li { text-align: center; }
-            .nav-links li a { display: block; padding: 10px; }
-            .menu-toggle { display: block; }
-            .hero h1 { font-size: 1.9rem; }
-            .hero p { font-size: 1rem; }
             .question-palette { grid-template-columns: repeat(auto-fill, minmax(32px, 1fr)); }
             .palette-btn { width: 32px; height: 32px; font-size: 0.75rem; }
+            .results-hero { padding: 24px 16px; }
+            .results-stats-row { gap: 10px; }
+            .results-stat { padding: 10px 8px; min-width: 70px; }
         }
     </style>
 </head>
+
 <body>
 
-    <nav class="navbar">
-        <a href="/" class="nav-brand">Rajasthan MO</a>
-        <div class="menu-toggle" id="mobile-menu">☰</div>
-        <ul class="nav-links" id="nav-links">
-            <li><a href="/">Home</a></li>
-            <li><a href="/rajasthan-mo-syllabus">Syllabus</a></li>
-            <li><a href="/rajasthan-mo-eligibility">Eligibility</a></li>
-            <li><a href="/rajasthan-mo-notification">Notification</a></li>
-        </ul>
-    </nav>
+    <!-- 1. Header & Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="/" class="nav-brand">
+                    <div class="brand-icon">🏥</div>
+                    <div>RUHS MO</div>
+                    <span class="brand-tag">2026</span>
+                </a>
 
-    <header class="hero" id="home">
-        <h1>RUHS MO Test Series</h1>
-        <p>Attempt 5 full-length, timed mock tests built entirely from the RUHS Medical Officer 2022 Official Paper. Each test has 20 questions and a 20-minute timer, mirroring real exam pressure, with instant scoring and detailed explanations at the end.</p>
-        <div class="hero-stats">
-            <div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-label">Tests</span></div>
-            <div class="hero-stat"><span class="hero-stat-num">100</span><span class="hero-stat-label">Total Questions</span></div>
-            <div class="hero-stat"><span class="hero-stat-num">20 min</span><span class="hero-stat-label">Per Test</span></div>
-        </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index" class="nav-link">Home</a></li>
+                    <li><a href="rajasthan-mo-notification" class="nav-link">Notification</a></li>
+                    <li><a href="rajasthan-mo-syllabus" class="nav-link">Syllabus</a></li>
+                    <li><a href="rajasthan-mo-eligibility" class="nav-link">Eligibility</a></li>
+                    <li><a href="rajasthan-mo-vacancy" class="nav-link">Vacancy</a></li>
+                    <li><a href="rajasthan-mo-cutoff" class="nav-link">Cutoff</a></li>
+                    <li><a href="ruhs-mo-pyqs" class="nav-link">PYQs</a></li>
+                    <li><a href="ruhs-mo-test-series" class="nav-link active" style="color: var(--blue-primary); font-weight: 700;">Test Series</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <div class="mobile-toggle" id="mobile-toggle">☰</div>
+                </div>
+            </div>
+        </nav>
     </header>
 
-    <main>
-
-    <section class="container test-view" id="test-selection-view" style="display:block;">
-        <h2 class="section-title">Choose a Test to Begin</h2>
-        <p class="section-subtitle">Each test is timed and covers a mix of subjects drawn from the official paper. Once you start, the clock keeps running until you submit or time runs out.</p>
-        <div class="test-grid" id="test-grid"></div>
-    </section>
-
-    <section class="container test-view" id="test-taking-view">
-        <div class="test-topbar">
-            <div class="test-topbar-left">
-                <span class="test-title-badge" id="active-test-title">Test 1</span>
-                <span class="score-summary" id="score-summary">Answered: 0 / 20</span>
-            </div>
-            <div style="display:flex; align-items:center; gap:14px;">
-                <div class="timer-display" id="timer-display">⏱ 20:00</div>
-                <button type="button" class="btn-exit-test" id="exit-test-btn">Exit Test</button>
+    <!-- 2. Subpage Hero Banner -->
+    <section class="hero-section" id="home">
+        <div class="main-wrapper">
+            <div style="max-width: 860px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center;">
+                <div class="hero-tag">
+                    <span>🏆 ONLINE MOCK TEST SERIES</span>
+                </div>
+                <h1 class="hero-title" style="font-size: clamp(2rem, 5.5vw, 3rem);">
+                    RUHS MO <span>Test Series</span>
+                </h1>
+                <p class="hero-subtitle" style="font-size: 1.1rem; max-width: 760px;">
+                    Attempt 5 full-length, timed mock tests built from the RUHS Medical Officer official paper. Each test features a 20-minute timer with instant scoring and detailed explanations.
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-label">Full Tests</span></div>
+                    <div class="hero-stat"><span class="hero-stat-num">100</span><span class="hero-stat-label">MCQs</span></div>
+                    <div class="hero-stat"><span class="hero-stat-num">20 min</span><span class="hero-stat-label">Per Test</span></div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-bar-fill" style="width:5%;"></div></div>
+    <main class="main-wrapper">
 
-        <div class="quiz-card">
-            <div class="quiz-meta">
-                <span class="quiz-tag" id="quiz-tag">Radiology</span>
-                <span class="quiz-progress" id="quiz-progress">Question 1 of 20</span>
+        <section class="section-container test-view" id="test-selection-view" style="display:block;">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <span class="section-subtitle">AVAILABLE MOCK TESTS</span>
+                    <h2 class="section-title">Choose a Test to Begin</h2>
+                </div>
+            </div>
+            <p style="margin-bottom: 24px; color: var(--text-muted);">Each test is timed (20 mins, 20 questions) and covers a mix of subjects drawn from the official paper. Once you start, the clock keeps running until you submit or time runs out.</p>
+            <div class="test-grid" id="test-grid"></div>
+        </section>
+
+        <section class="section-container test-view" id="test-taking-view">
+            <div class="test-topbar">
+                <div class="test-topbar-left">
+                    <span class="test-title-badge" id="active-test-title">Test 1</span>
+                    <span class="score-summary" id="score-summary">Answered: 0 / 20</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:14px;">
+                    <div class="timer-display" id="timer-display">⏱ 20:00</div>
+                    <button type="button" class="btn-exit-test" id="exit-test-btn">Exit Test</button>
+                </div>
             </div>
 
-            <p class="quiz-question" id="quiz-question-text"></p>
+            <div class="progress-bar-track"><div class="progress-bar-fill" id="progress-bar-fill" style="width:5%;"></div></div>
 
-            <form id="quiz-form">
-                <ul class="quiz-options" id="quiz-options"></ul>
-
-                <div class="quiz-actions">
-                    <button type="submit" class="btn-submit" id="submit-btn" disabled>Submit Answer</button>
-                    <button type="button" class="btn-next" id="next-btn" style="display:none;">Next Question</button>
-                    <button type="button" class="btn-jump" id="prev-btn">← Previous</button>
-                    <button type="button" class="btn-finish" id="finish-btn">Finish Test</button>
+            <div class="quiz-card">
+                <div class="quiz-meta">
+                    <span class="quiz-tag" id="quiz-tag">Radiology</span>
+                    <span class="quiz-progress" id="quiz-progress">Question 1 of 20</span>
                 </div>
 
-                <div class="quiz-feedback" id="quiz-feedback"></div>
+                <p class="quiz-question" id="quiz-question-text"></p>
 
-                <div class="question-palette" id="question-palette"></div>
-            </form>
-        </div>
-    </section>
+                <form id="quiz-form">
+                    <ul class="quiz-options" id="quiz-options"></ul>
 
-    <section class="container test-view" id="results-view">
-        <div class="results-hero">
-            <div class="results-score-circle">
-                <span class="pct" id="results-pct">0%</span>
-                <span class="label">Score</span>
+                    <div class="quiz-actions">
+                        <button type="submit" class="btn-submit" id="submit-btn" disabled>Submit Answer</button>
+                        <button type="button" class="btn-next" id="next-btn" style="display:none;">Next Question</button>
+                        <button type="button" class="btn-jump" id="prev-btn">← Previous</button>
+                        <button type="button" class="btn-finish" id="finish-btn">Finish Test</button>
+                    </div>
+
+                    <div class="quiz-feedback" id="quiz-feedback"></div>
+
+                    <div class="question-palette" id="question-palette"></div>
+                </form>
             </div>
-            <h2 id="results-title">Test 1 Complete</h2>
-            <p id="results-subtitle">Here's how you performed</p>
-            <div class="results-stats-row">
-                <div class="results-stat correct"><div class="num" id="stat-correct">0</div><div class="lbl">Correct</div></div>
-                <div class="results-stat incorrect"><div class="num" id="stat-incorrect">0</div><div class="lbl">Incorrect</div></div>
-                <div class="results-stat skipped"><div class="num" id="stat-skipped">0</div><div class="lbl">Skipped</div></div>
-                <div class="results-stat"><div class="num" id="stat-time">0:00</div><div class="lbl">Time Taken</div></div>
-            </div>
-            <div class="results-actions">
-                <button type="button" class="btn-submit" id="retake-test-btn">Retake This Test</button>
-                <button type="button" class="btn-next" id="back-to-tests-btn">Back to All Tests</button>
-            </div>
-        </div>
+        </section>
 
-        <h2 class="section-title">Answer Review</h2>
-        <div class="review-list" id="review-list"></div>
-    </section>
+        <section class="section-container test-view" id="results-view">
+            <div class="results-hero">
+                <div class="results-score-circle">
+                    <span class="pct" id="results-pct">0%</span>
+                    <span class="label">Score</span>
+                </div>
+                <h2 id="results-title">Test 1 Complete</h2>
+                <p id="results-subtitle">Here's how you performed</p>
+                <div class="results-stats-row">
+                    <div class="results-stat correct"><div class="num" id="stat-correct">0</div><div class="lbl">Correct</div></div>
+                    <div class="results-stat incorrect"><div class="num" id="stat-incorrect">0</div><div class="lbl">Incorrect</div></div>
+                    <div class="results-stat skipped"><div class="num" id="stat-skipped">0</div><div class="lbl">Skipped</div></div>
+                    <div class="results-stat"><div class="num" id="stat-time">0:00</div><div class="lbl">Time Taken</div></div>
+                </div>
+                <div class="results-actions">
+                    <button type="button" class="btn-submit" id="retake-test-btn">Retake This Test</button>
+                    <button type="button" class="btn-next" id="back-to-tests-btn">Back to All Tests</button>
+                </div>
+            </div>
 
-    <section class="container test-view" id="how-to-attempt" style="display:block;">
-        <h2 class="section-title">How the RUHS MO Test Series Works</h2>
-        <div style="background: var(--white); padding: 10px 30px; border-radius: 6px; box-shadow: var(--shadow); border: 1px solid var(--accent-color);">
-            <ol class="steps-list">
-                <li>Pick any of the 5 tests above — each has 20 questions and a 20-minute timer.</li>
-                <li>Answer each question and click "Submit Answer" to lock in your response and see instant feedback.</li>
-                <li>Use the question palette at the bottom to jump between questions, or use Previous/Next to move sequentially.</li>
-                <li>Click "Finish Test" any time, or let the timer run out, to see your score, time taken, and a full answer review with explanations.</li>
-            </ol>
-        </div>
-    </section>
+            <div class="section-header">
+                <div class="section-title-group">
+                    <span class="section-subtitle">DETAILED EXPLANATIONS</span>
+                    <h2 class="section-title">Answer Review</h2>
+                </div>
+            </div>
+            <div class="review-list" id="review-list"></div>
+        </section>
+
+        <section class="section-container test-view" id="how-to-attempt" style="display:block;">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <span class="section-subtitle">TEST INSTRUCTIONS</span>
+                    <h2 class="section-title">How the RUHS MO Test Series Works</h2>
+                </div>
+            </div>
+            <div class="grid-4-col">
+                <div class="process-card">
+                    <div class="step-number">01</div>
+                    <h4>Select Mock Test</h4>
+                    <p>Pick any of the 5 full-length tests — each contains 20 clinical MCQs with a 20-minute timer.</p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">02</div>
+                    <h4>Attempt &amp; Submit</h4>
+                    <p>Select your answer and click "Submit Answer" to lock in your response and view instant feedback.</p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">03</div>
+                    <h4>Track &amp; Navigate</h4>
+                    <p>Use the question palette to jump between questions or use Next/Previous controls seamlessly.</p>
+                </div>
+                <div class="process-card">
+                    <div class="step-number">04</div>
+                    <h4>Review &amp; Score</h4>
+                    <p>Complete the test to unlock detailed answer explanations, total score percentage, and topic analytics.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Score Interpretation Guide -->
+        <section class="section-container test-view" id="score-guide" style="display:block;">
+            <div class="section-header">
+                <div class="section-title-group">
+                    <span class="section-subtitle">SCORE BENCHMARK</span>
+                    <h2 class="section-title">How to Interpret Your Mock Test Score</h2>
+                </div>
+            </div>
+            <div class="table-container" style="margin-top: 20px;">
+                <table class="dates-table">
+                    <thead>
+                        <tr><th>Score Range (out of 20)</th><th>Percentage</th><th>Performance</th><th>Recommended Action</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>18–20</strong></td>
+                            <td>90–100%</td>
+                            <td><span style="background:#dcfce7;color:#166534;padding:3px 12px;border-radius:999px;font-size:0.8rem;font-weight:700;">Excellent 🏆</span></td>
+                            <td>Maintain speed &amp; consistency. Focus on harder PYQs.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>15–17</strong></td>
+                            <td>75–85%</td>
+                            <td><span style="background:#dbeafe;color:#1e40af;padding:3px 12px;border-radius:999px;font-size:0.8rem;font-weight:700;">Good 👍</span></td>
+                            <td>Identify wrong-answer topics and revise those chapters.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>12–14</strong></td>
+                            <td>60–70%</td>
+                            <td><span style="background:#fef9c3;color:#854d0e;padding:3px 12px;border-radius:999px;font-size:0.8rem;font-weight:700;">Average 📘</span></td>
+                            <td>Revisit high-weightage subjects: PSM, Medicine, Surgery.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>9–11</strong></td>
+                            <td>45–55%</td>
+                            <td><span style="background:#fef2f2;color:#dc2626;padding:3px 12px;border-radius:999px;font-size:0.8rem;font-weight:700;">Below Average ⚠️</span></td>
+                            <td>Go back to textbooks. Focus on Park's SPM and Harrison's.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Below 9</strong></td>
+                            <td>&lt;45%</td>
+                            <td><span style="background:#f3f4f6;color:#374151;padding:3px 12px;border-radius:999px;font-size:0.8rem;font-weight:700;">Needs Improvement 📖</span></td>
+                            <td>Restart preparation systematically. Use subject-wise PYQ approach.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top: 24px; background: linear-gradient(135deg, #eff6ff, #f0f4ff); border: 1px solid #93c5fd; border-left: 5px solid #3b82f6; border-radius: var(--radius-lg); padding: 22px;">
+                <h3 style="color: #1e40af; margin-bottom: 12px; font-size: 1.05rem;">📈 Post-Test Improvement Strategy</h3>
+                <ul style="margin-left: 20px; display: flex; flex-direction: column; gap: 8px; font-size: 0.92rem; color: var(--text-body);">
+                    <li><strong>Review every wrong answer</strong> immediately after the test — don't skip the explanation section.</li>
+                    <li><strong>Topic-tag your mistakes</strong>: If you got 3 wrong in PSM, it's not random — go back to Park's for those topics.</li>
+                    <li><strong>Re-attempt the same test</strong> after 3–4 days to measure retention; aim for 90%+ on re-attempts.</li>
+                    <li><strong>Track your progress</strong> across all 5 tests — if Test 1 score is 12 but Test 5 score is 18, you're improving well.</li>
+                    <li><strong>One week before exam</strong>: Do all 5 tests back-to-back in a single day to simulate exam stamina.</li>
+                </ul>
+            </div>
+        </section>
 
     </main>
 
-    <footer class="footer" id="footer">
-        <p>&copy; 2026 Rajasthan Medical Officer (RUHS MO) Notification. All Rights Reserved.</p>
-        <div style="margin-top: 15px;">
-            <a href="/about" style="color: var(--primary-color); text-decoration: none; margin: 0 10px; font-weight: 600;">About Us</a> |
-            <a href="/privacy" style="color: var(--primary-color); text-decoration: none; margin: 0 10px; font-weight: 600;">Privacy Policy</a> |
-            <a href="/terms" style="color: var(--primary-color); text-decoration: none; margin: 0 10px; font-weight: 600;">Terms & Conditions</a> |
-            <a href="/contact" style="color: var(--primary-color); text-decoration: none; margin: 0 10px; font-weight: 600;">Contact Us</a>
-        </div>
-    </footer>
 
     <script>
-        const menuToggle = document.getElementById('mobile-menu');
-        const navLinks = document.getElementById('nav-links');
-        menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => navLinks.classList.remove('active'));
-        });
-
         const questionBank = [
             {
                         "tag": "Community Medicine",
@@ -1951,8 +1994,97 @@
 
         retakeTestBtn.addEventListener('click', () => startTest(activeTest.id));
         backToTestsBtn.addEventListener('click', () => switchToView('selection'));
-
         switchToView('selection');
+    </script>
+
+    <!-- Footer Section -->
+    <footer class="footer-section">
+        <div class="main-wrapper">
+            <div class="footer-top-grid">
+                <!-- Brand Info Column -->
+                <div class="footer-brand-col">
+                    <h3>🏥 RUHS MO Portal</h3>
+                    <p>
+                        Your trusted portal for Rajasthan Medical Officer direct recruitment exam updates, category cutoffs, syllabus booklets, and previous year papers.
+                    </p>
+                    <a href="https://t.me/nextmoneetpg" target="_blank" class="btn-telegram-nav">
+                        <span>Join Telegram Channel</span>
+                    </a>
+                </div>
+
+                <!-- Column 2: Recruitment Pages -->
+                <div class="footer-col">
+                    <h5>Recruitment</h5>
+                    <ul class="footer-links">
+                        <li><a href="rajasthan-mo-notification">Notification 2026</a></li>
+                        <li><a href="rajasthan-mo-recruitment">Recruitment Guide</a></li>
+                        <li><a href="rajasthan-mo-vacancy">Vacancy Details</a></li>
+                        <li><a href="rajasthan-mo-salary">Salary Structure</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Exam & Syllabus Pages -->
+                <div class="footer-col">
+                    <h5>Exam & Rules</h5>
+                    <ul class="footer-links">
+                        <li><a href="rajasthan-mo-syllabus">Syllabus PDF</a></li>
+                        <li><a href="rajasthan-mo-exam">Exam Pattern</a></li>
+                        <li><a href="rajasthan-mo-eligibility">Eligibility Criteria</a></li>
+                        <li><a href="rajasthan-mo-cutoff">Cutoff Marks</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Preparation & Practice Pages -->
+                <div class="footer-col">
+                    <h5>Preparation</h5>
+                    <ul class="footer-links">
+                        <li><a href="ruhs-mo-pyqs">PYQ Papers</a></li>
+                        <li><a href="ruhs-mo-test-series">Mock Test Series</a></li>
+                        <li><a href="rajasthan-mo-faq">RUHS MO FAQs</a></li>
+                        <li><a href="index#dates">Important Dates</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Legal & Contact Pages -->
+                <div class="footer-col">
+                    <h5>Info & Legal</h5>
+                    <ul class="footer-links">
+                        <li><a href="about">About Us</a></li>
+                        <li><a href="contact">Contact Us</a></li>
+                        <li><a href="privacy">Privacy Policy</a></li>
+                        <li><a href="terms">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Rajasthan Medical Officer (RUHS MO). All Rights Reserved. Designed for Medical Aspirants.</p>
+                <button class="btn-back-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <span>Back to Top</span> ↑
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Mobile Toggle Menu
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
     </script>
 </body>
 </html>
